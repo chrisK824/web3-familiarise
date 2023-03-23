@@ -6,14 +6,9 @@ from eth_account import Account
 from web3.eth import Eth
 from web3._utils.encoding import Web3JsonEncoder
 
-
-SEPOLIA_ETH__RPC_NODE = "https://rpc.sepolia.org"
 BINANCE_RPC_NODE = "https://data-seed-prebsc-1-s1.binance.org:8545"
 
-
-RPC_NODE = BINANCE_RPC_NODE
-
-w3 = Web3(Web3.HTTPProvider(RPC_NODE))
+w3 = Web3(Web3.HTTPProvider(BINANCE_RPC_NODE))
 eth = Eth(w3)
 
 
@@ -124,7 +119,7 @@ Menu selection
 
 
 print(
-    f"Client is {'connected' if w3.is_connected() else 'not connected'} to RPC node {RPC_NODE}")
+    f"Client is {'connected' if w3.is_connected() else 'not connected'} to RPC node {BINANCE_RPC_NODE}")
 print(f"Current chain ID is: {eth.chain_id}")
 
 print_menu()
