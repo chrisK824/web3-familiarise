@@ -1,6 +1,7 @@
 import json
 import sys
 from web3.gas_strategies.rpc import rpc_gas_price_strategy
+from web3.middleware import geth_poa_middleware
 from web3 import Web3
 from eth_account import Account
 from web3.eth import Eth
@@ -9,6 +10,7 @@ from web3._utils.encoding import Web3JsonEncoder
 BINANCE_RPC_NODE = "https://data-seed-prebsc-1-s1.binance.org:8545"
 
 w3 = Web3(Web3.HTTPProvider(BINANCE_RPC_NODE))
+w3.middleware_onion.inject(geth_poa_middleware, layer=0)
 eth = Eth(w3)
 
 
